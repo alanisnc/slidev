@@ -10,7 +10,7 @@ This repository contains multiple connected packages and uses pnpm and Turborepo
 Use Node.js >=22.12.0 and pnpm 12.15.0.
 
 ## Architecture
-*Key Directories: *
+### Key Directories: 
 - `packages/slidev/`: CLI and Node.js tooling. The `@slidev/cli` package uses `bin/slidev.mjs` as its executable and `node/cli.ts` as its CLI source entry point.
 - `packages/parser/src/`: Parses slide Markdown and configuration.
 - `packages/client/`: Vue presentation client, with `main.ts` and `App.vue` as application entry points.
@@ -47,8 +47,8 @@ pnpm -C packages/slidev build
 
 ## Conventions
 - Follow the format of existing TypeScript and Vue and Antfu ESLint configuration.
-- For type-only dependencies, named exports where appropriate, camelCase for functions and variables, and PascalCase for types and interfaces, use `import type`.
-- For formating, format with two-space indentation, single quotes, and no semicolons.
+- For type-only dependencies use import type. For functions and variables use camelCase. Use PascalCase for types and interfaces.
+- For formatting, format with two-space indentation, single quotes, and no semicolons.
 - Use Vitest with `describe`, `it`, and `expect`. Place focused `*.test.ts` files near related source code; use `test/` for broader integration and fixture-based tests.
 - When changing Markdown parsing, reuse existing fixtures in test/fixtures/ and inspect snapshot differences before updating files.
 
@@ -56,6 +56,6 @@ pnpm -C packages/slidev build
 - ONLY use pnpm, DO NOT use npm or yarn.
 - DO NOT edit generated or ignored outputs such as `dist/`, `node_modules/`, `.slidev/`, or `.turbo/`.
 - DO NOT automatically fix unrelated files when working on a focused task.
-- AVOID uneccessary changes to `pnpm-lock.yaml`, `skills-lock.json`, `patches/`, or pinned overrides in `pnpm-workspace.yaml`.
+- AVOID unnecessary changes to `pnpm-lock.yaml`, `skills-lock.json`, `patches/`, or pinned overrides in `pnpm-workspace.yaml`.
 - The CLI package is `packages/slidev/`
 - `pnpm install` runs a `prepare` script that synchronizes skills; ALWAYS inspect any resulting `skills-lock.json` changes before committing them.
